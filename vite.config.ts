@@ -20,6 +20,9 @@ export default defineConfig((config) => {
       host: true,
       port: 5173,
       cors: true, // Permite CORS de qualquer origem
+      allowedHosts: process.env.VITE_ALLOWED_HOSTS 
+        ? process.env.VITE_ALLOWED_HOSTS.split(',').map(host => host.trim())
+        : 'all', // Se não especificado, permite todos
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
