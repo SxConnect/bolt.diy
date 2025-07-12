@@ -19,16 +19,7 @@ export default defineConfig((config) => {
     server: {
       host: true,
       port: 5173,
-      cors: true, // Permite CORS de qualquer origem
-      allowedHosts: process.env.VITE_ALLOWED_HOSTS 
-        ? process.env.VITE_ALLOWED_HOSTS.split(',').map(host => host.trim())
-        : [
-            'localhost',
-            '127.0.0.1',
-            '::1',
-            'bolt.bibot.top',
-            '*.bibot.top' // Permite qualquer subdomínio
-          ],
+      allowedHosts: ['boltx.bibot.top'],
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
