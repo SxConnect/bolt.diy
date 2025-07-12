@@ -22,7 +22,13 @@ export default defineConfig((config) => {
       cors: true, // Permite CORS de qualquer origem
       allowedHosts: process.env.VITE_ALLOWED_HOSTS 
         ? process.env.VITE_ALLOWED_HOSTS.split(',').map(host => host.trim())
-        : 'all', // Se não especificado, permite todos
+        : [
+            'localhost',
+            '127.0.0.1',
+            '::1',
+            'bolt.bibot.top',
+            '*.bibot.top' // Permite qualquer subdomínio
+          ],
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
